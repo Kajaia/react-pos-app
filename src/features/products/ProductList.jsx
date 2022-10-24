@@ -20,7 +20,7 @@ export default function ProductList() {
             Products
           </h3>
         </div>
-        <div className="card-body">
+        <div className="card-body products-body">
           <div className="row justify-content-center g-3">
             {products.length > 0 &&
               products.map((product) => (

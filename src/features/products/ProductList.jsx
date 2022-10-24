@@ -12,18 +12,44 @@ export default function ProductList() {
   }, [status, dispatch]);
 
   return (
-    <>
-      <h1>Products list:</h1>
-      {products.length > 0 &&
-        products.map((product) => (
-          <div key={product.id}>
-            <img width="100px" src={product.image} alt={product.name} />
-            <h4>{product.name}</h4>
-            <p>{product.description}</p>
-            <small>${product.price}</small>
-            <hr />
+    <div className="col-12 col-md-8">
+      <div className="card rounded-3 h-100 border-0 shadow">
+        <div className="card-header bg-light">
+          <h3 className="mb-0">
+            <i className="fas fa-shopping-basket text-primary me-2"></i>
+            Products
+          </h3>
+        </div>
+        <div className="card-body">
+          <div className="row justify-content-center g-3">
+            {products.length > 0 &&
+              products.map((product) => (
+                <div
+                  className="col-6 col-md-4 col-lg-3 col-xl-2"
+                  key={product.id}
+                >
+                  <div className="card h-100 border-0 rounded-3 shadow">
+                    <div className="card-body d-flex flex-column">
+                      <span className="badge bg-primary rounded-pill shadow-sm position-absolute m-1">
+                        ${product.price}
+                      </span>
+                      <img
+                        width="100%"
+                        height="100px"
+                        className="rounded-3 cover mb-1"
+                        src={product.image}
+                        alt={product.name}
+                      />
+                      <small className="fw-bold">{product.name}</small>
+                      <br />
+                      <small className="mt-auto">#{product.id}</small>
+                    </div>
+                  </div>
+                </div>
+              ))}
           </div>
-        ))}
-    </>
+        </div>
+      </div>
+    </div>
   );
 }

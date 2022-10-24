@@ -8,6 +8,4 @@ const instance = axios.create({
   },
 });
 
-const getProducts = () => instance.get("/products");
-
-export { getProducts };
+export const getProducts = () => instance.get("/products/order/price");

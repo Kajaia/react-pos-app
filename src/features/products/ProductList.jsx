@@ -14,7 +14,7 @@ export default function ProductList() {
 
   return (
     <>
-      <div className="col-12 col-md-8">
+      <div className="col-12 col-md-6">
         <div className="card rounded-3 h-100 border-0 shadow">
           <div className="card-header bg-light">
             <h3 className="mb-0">
@@ -27,7 +27,7 @@ export default function ProductList() {
               {products.length > 0 &&
                 products.map((product) => (
                   <div
-                    className="col-6 col-md-4 col-lg-3 col-xl-2"
+                    className="col-6 col-sm-4 col-md-6 col-lg-4"
                     key={product.id}
                   >
                     <div className="product card h-100 border-0 rounded-3 shadow">
@@ -41,6 +41,7 @@ export default function ProductList() {
                           className="rounded-3 cover mb-1"
                           src={product.image}
                           alt={product.name}
+                          loading="lazy"
                         />
                         <small className="fw-bold">{product.name}</small>
                         <br />

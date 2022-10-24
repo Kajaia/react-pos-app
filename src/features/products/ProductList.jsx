@@ -28,7 +28,7 @@ export default function ProductList() {
                   className="col-6 col-md-4 col-lg-3 col-xl-2"
                   key={product.id}
                 >
-                  <div className="card h-100 border-0 rounded-3 shadow">
+                  <div className="product card h-100 border-0 rounded-3 shadow">
                     <div className="card-body d-flex flex-column">
                       <span className="badge bg-primary rounded-pill shadow-sm position-absolute m-1">
                         ${product.price}

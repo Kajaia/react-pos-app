@@ -6,3 +6,8 @@
   max-height: 88vh;
   overflow-y: auto;
 }
+
+.product:hover {
+  outline: 1px solid #0d6efd;
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
+import CartItemHeader from "./CartItemHeader";
 import CartTotal from "./CartTotal";
 
 export default function CartItemList() {
@@ -35,25 +36,7 @@ export default function CartItemList() {
               {count > 0 && (
                 <div className="table-responsive mx-0">
                   <table className="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>
-                          <small>Product</small>
-                        </th>
-                        <th className="text-center">
-                          <small>Price</small>
-                        </th>
-                        <th className="text-center">
-                          <small>Qty</small>
-                        </th>
-                        <th className="text-center">
-                          <small>Subtotal</small>
-                        </th>
-                        <th className="text-center">
-                          <small>Action</small>
-                        </th>
-                      </tr>
-                    </thead>
+                    <CartItemHeader />
                     <tbody>
                       {count > 0 &&
                         items.map((item) => (

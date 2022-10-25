@@ -1,11 +1,23 @@
+import { useDispatch } from "react-redux";
+import { resetCart } from "./cartSlice";
+
 export default function CartTotal({ total }) {
+  const dispatch = useDispatch();
+
+  const resetCartItems = () => {
+    dispatch(resetCart());
+  };
+
   return (
     <div className="card-footer mt-auto bg-white rounded-3 border-0 py-3">
       <span className="badge bg-primary rounded-pill shadow-sm w-100 fs-5">{`Total price: $${total.toFixed(
         2
       )}`}</span>
       <div className="mt-2 d-flex align-items-center justify-content-center flex-wrap gap-2">
-        <button className="btn btn-sm btn-danger rounded-pill shadow-sm px-3">
+        <button
+          onClick={resetCartItems}
+          className="btn btn-sm btn-danger rounded-pill shadow-sm px-3"
+        >
           <i className="fas fa-power-off fa-sm me-1"></i>
           Reset
         </button>

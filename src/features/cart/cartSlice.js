@@ -20,8 +20,11 @@ const cartSlice = createSlice({
           return item;
         });
     },
+    resetCart: (state) => {
+      state.items = [];
+    },
   },
 });
 
-export const { addItem } = cartSlice.actions;
+export const { addItem, resetCart } = cartSlice.actions;
 export default cartSlice.reducer;

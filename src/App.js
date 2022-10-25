@@ -5,7 +5,7 @@ import CartItemList from "./features/cart/CartItemList";
 function App() {
   return (
     <div className="container-fluid my-3">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center g-3">
         <ErrorBoundary>
           <CartItemList />
         </ErrorBoundary>

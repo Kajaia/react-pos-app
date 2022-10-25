@@ -20,9 +20,9 @@ export default function ProductList() {
 
   return (
     <>
-      <div className="col-12 col-md-6">
+      <div className="col-12 col-md-6 col-lg-7">
         <div className="card rounded-3 h-100 border-0 shadow">
-          <div className="card-header bg-light">
+          <div className="card-header rounded-3 border-0 bg-light">
             <h3 className="mb-0">
               <i className="fas fa-store text-primary me-2"></i>
               Products

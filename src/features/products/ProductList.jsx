@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GlobalSpinner from "../../portals/GlobalSpinner";
-import { addItem } from "../cart/cartSlice";
+import ProductItem from "./ProductItem";
 import { getItems } from "./productsSlice";
 
 export default function ProductList() {
@@ -13,10 +13,6 @@ export default function ProductList() {
   useEffect(() => {
     if (status === "idle") dispatch(getItems());
   }, [status, dispatch]);
-
-  const addToCart = (item) => {
-    dispatch(addItem({ ...item, qty: 1 }));
-  };
 
   return (
     <>
@@ -32,34 +28,7 @@ export default function ProductList() {
             <div className="row justify-content-center g-3">
               {products.length > 0 &&
                 products.map((product) => (
-                  <div
-                    className="col-6 col-sm-4 col-md-6 col-lg-4"
-                    key={product.id}
-                  >
-                    <div
-                      onClick={() => addToCart(product)}
-                      className="product card h-100 border-0 rounded-3 shadow"
-                    >
-                      <div className="card-body d-flex flex-column">
-                        <span className="badge bg-primary rounded-pill shadow-sm position-absolute m-1">
-                          ${product.price}
-                        </span>
-                        <img
-                          width="100%"
-                          height="100px"
-                          className="rounded-3 cover mb-1"
-                          src={product.image}
-                          alt={product.name}
-                          loading="lazy"
-                        />
-                        <small className="fw-bold line-height mb-1">
-                          {product.name}
-                        </small>
-                        <br />
-                        <small className="mt-auto">#{product.id}</small>
-                      </div>
-                    </div>
-                  </div>
+                  <ProductItem key={product.id} product={product} />
                 ))}
               {error && <h5 className="text-center mb-0">{error}</h5>}
             </div>

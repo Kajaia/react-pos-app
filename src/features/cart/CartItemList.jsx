@@ -49,7 +49,7 @@ export default function CartItemList() {
               {error && <h5 className="text-center mb-0">{error}</h5>}
             </div>
           </div>
-          {total > 0 && <CartTotal total={total} />}
+          {total > 0 && <CartTotal count={count} total={total} />}
         </div>
       </div>
     </>

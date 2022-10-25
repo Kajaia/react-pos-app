@@ -1,9 +1,9 @@
-export default function CartInvoice({ options, total, finalPrice }) {
+export default function CartInvoice({ count, options, total, finalPrice }) {
   return (
     <ul className="list-group">
       <li className="list-group-item d-flex justify-content-between align-items-start">
         <div className="ms-2 me-auto">Items in cart</div>
-        <span className="badge bg-success rounded-pill">14</span>
+        <span className="badge bg-success rounded-pill">{count}</span>
       </li>
       <li className="list-group-item d-flex justify-content-between align-items-start">
         <div className="ms-2 me-auto">Tax</div>

@@ -4,7 +4,7 @@ import { resetCart } from "./cartSlice";
 import Modal from "../../portals/Modal";
 import CartInvoice from "./CartInvoice";
 
-export default function CartTotal({ total }) {
+export default function CartTotal({ total, count }) {
   const [options, setOptions] = useState({
     tax: 10,
     discount: 0,
@@ -92,7 +92,12 @@ export default function CartTotal({ total }) {
         </div>
       </div>
       <Modal isOpen={isOpen} close={() => setIsOpen(false)} title="Invoice">
-        <CartInvoice options={options} total={total} finalPrice={finalPrice} />
+        <CartInvoice
+          count={count}
+          options={options}
+          total={total}
+          finalPrice={finalPrice}
+        />
       </Modal>
     </>
   );

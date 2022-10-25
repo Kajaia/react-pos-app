@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 body {
   font-family: "Nunito", sans-serif;
 }
@@ -27,14 +39,14 @@ body {
   height: 100%;
   background-color: #000;
   opacity: 0.5;
-  z-index: 1;
+  z-index: 2;
 }
 
 .global-spinner {
   position: fixed;
   top: 50%;
   right: 50%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .line-height {
@@ -54,5 +66,9 @@ body {
   transform: translate(50%, -50%);
   width: 640px;
   max-width: 90%;
-  z-index: 1;
+  z-index: 2;
+}
+
+.qty-input {
+  font-size: 14px;
 }

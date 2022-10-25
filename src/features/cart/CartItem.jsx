@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { removeItem } from "./cartSlice";
+import { decrementQty, incrementQty, removeItem } from "./cartSlice";
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -18,8 +18,28 @@ export default function CartItem({ item }) {
       <td className="text-center">
         <small>${item.price}</small>
       </td>
-      <td className="text-center">
-        <small>{item.qty}</small>
+      <td className="text-center w-25">
+        <div className="input-group">
+          <button
+            onClick={() => dispatch(decrementQty(item.id))}
+            className="btn btn-sm btn-secondary px-1"
+          >
+            <i className="fas fa-minus fa-xs"></i>
+          </button>
+          <input
+            type="number"
+            min="1"
+            value={item.qty}
+            className="form-control py-0 qty-input text-center"
+            disabled
+          />
+          <button
+            onClick={() => dispatch(incrementQty(item.id))}
+            className="btn btn-sm btn-secondary px-1"
+          >
+            <i className="fas fa-plus fa-xs"></i>
+          </button>
+        </div>
       </td>
       <td className="text-center">
         <small>${(item.price * item.qty).toFixed(2)}</small>

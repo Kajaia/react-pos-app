@@ -6,6 +6,7 @@ import { getItems } from "./productsSlice";
 export default function ProductList() {
   const products = useSelector((state) => state.products.items);
   const status = useSelector((state) => state.products.status);
+  const error = useSelector((state) => state.products.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function ProductList() {
                     </div>
                   </div>
                 ))}
+              {error && <h5 className="text-center mb-0">{error}</h5>}
             </div>
           </div>
         </div>

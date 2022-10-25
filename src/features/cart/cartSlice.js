@@ -20,11 +20,14 @@ const cartSlice = createSlice({
           return item;
         });
     },
+    removeItem: (state, action) => {
+      state.items = state.items.filter((item) => item.id !== action.payload);
+    },
     resetCart: (state) => {
       state.items = [];
     },
   },
 });
 
-export const { addItem, resetCart } = cartSlice.actions;
+export const { addItem, removeItem, resetCart } = cartSlice.actions;
 export default cartSlice.reducer;

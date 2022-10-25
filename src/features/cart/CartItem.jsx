@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux";
+import { removeItem } from "./cartSlice";
+
 export default function CartItem({ item }) {
+  const dispatch = useDispatch();
+
+  const removeItemFromCart = (id) => {
+    dispatch(removeItem(id));
+  };
+
   return (
     <tr>
       <td>
@@ -16,7 +25,10 @@ export default function CartItem({ item }) {
         <small>${(item.price * item.qty).toFixed(2)}</small>
       </td>
       <td className="text-center">
-        <button className="btn btn-sm btn-danger rounded-circle shadow-sm">
+        <button
+          onClick={() => removeItemFromCart(item.id)}
+          className="btn btn-sm btn-danger rounded-circle shadow-sm"
+        >
           <i className="fas fa-trash fa-sm"></i>
         </button>
       </td>

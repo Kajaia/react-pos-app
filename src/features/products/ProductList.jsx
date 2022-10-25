@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GlobalSpinner from "../../portals/GlobalSpinner";
+import { addItem } from "../cart/cartSlice";
 import { getItems } from "./productsSlice";
 
 export default function ProductList() {
@@ -12,6 +13,10 @@ export default function ProductList() {
   useEffect(() => {
     if (status === "idle") dispatch(getItems());
   }, [status, dispatch]);
+
+  const addToCart = (item) => {
+    dispatch(addItem({ ...item, qty: 1 }));
+  };
 
   return (
     <>
@@ -31,7 +36,10 @@ export default function ProductList() {
                     className="col-6 col-sm-4 col-md-6 col-lg-4"
                     key={product.id}
                   >
-                    <div className="product card h-100 border-0 rounded-3 shadow">
+                    <div
+                      onClick={() => addToCart(product)}
+                      className="product card h-100 border-0 rounded-3 shadow"
+                    >
                       <div className="card-body d-flex flex-column">
                         <span className="badge bg-primary rounded-pill shadow-sm position-absolute m-1">
                           ${product.price}

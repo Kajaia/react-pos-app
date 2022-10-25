@@ -11,6 +11,7 @@ body {
 .products-body {
   max-height: 88vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .product:hover {

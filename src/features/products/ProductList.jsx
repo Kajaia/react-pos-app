@@ -19,7 +19,7 @@ export default function ProductList() {
         <div className="card rounded-3 h-100 border-0 shadow">
           <div className="card-header bg-light">
             <h3 className="mb-0">
-              <i className="fas fa-shopping-basket text-primary me-2"></i>
+              <i className="fas fa-store text-primary me-2"></i>
               Products
             </h3>
           </div>
@@ -44,7 +44,9 @@ export default function ProductList() {
                           alt={product.name}
                           loading="lazy"
                         />
-                        <small className="fw-bold">{product.name}</small>
+                        <small className="fw-bold line-height mb-1">
+                          {product.name}
+                        </small>
                         <br />
                         <small className="mt-auto">#{product.id}</small>
                       </div>

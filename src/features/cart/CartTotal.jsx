@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { resetCart } from "./cartSlice";
 import Modal from "../../portals/Modal";
+import CartInvoice from "./CartInvoice";
 
 export default function CartTotal({ total }) {
   const [options, setOptions] = useState({
@@ -91,36 +92,7 @@ export default function CartTotal({ total }) {
         </div>
       </div>
       <Modal isOpen={isOpen} close={() => setIsOpen(false)} title="Invoice">
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">Items in cart</div>
-            <span class="badge bg-success rounded-pill">14</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">Tax</div>
-            <small>{options.tax}%</small>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">Discount</div>
-            <small>{options.discount}%</small>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">Shipping</div>
-            <small>${options.shipping}</small>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">Price</div>
-            <span class="badge bg-secondary rounded-pill">
-              ${total.toFixed(2)}
-            </span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start bg-light">
-            <div class="ms-2 me-auto fw-bold">Total price</div>
-            <span class="badge bg-primary rounded-pill">
-              ${finalPrice.toFixed(2)}
-            </span>
-          </li>
-        </ul>
+        <CartInvoice options={options} total={total} finalPrice={finalPrice} />
       </Modal>
     </>
   );

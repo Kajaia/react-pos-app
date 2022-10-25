@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GlobalSpinner from "../../portals/GlobalSpinner";
 import ProductItem from "./ProductItem";
+import ProductSearch from "./ProductSearch";
 import { getItems } from "./productsSlice";
 
 export default function ProductList() {
-  const products = useSelector((state) => state.products.items);
+  const products = useSelector((state) => state.products.filteredItems);
   const status = useSelector((state) => state.products.status);
   const error = useSelector((state) => state.products.error);
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function ProductList() {
           </div>
           <div className="card-body products-body">
             <div className="row justify-content-center g-3">
+              <ProductSearch />
               {products.length > 0 &&
                 products.map((product) => (
                   <ProductItem key={product.id} product={product} />

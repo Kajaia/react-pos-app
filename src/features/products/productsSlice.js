@@ -5,8 +5,16 @@ const productsSlice = createSlice({
   name: "products",
   initialState: {
     items: [],
+    filteredItems: [],
     status: "idle",
     error: null,
+  },
+  reducers: {
+    searchItems: (state, action) => {
+      state.filteredItems = state.items.filter((item) => {
+        return item.name.toLowerCase().includes(action.payload.toLowerCase());
+      });
+    },
   },
   extraReducers(builder) {
     builder
@@ -16,6 +24,7 @@ const productsSlice = createSlice({
       .addCase(getItems.fulfilled, (state, action) => {
         state.status = "fulfilled";
         state.items = action.payload;
+        state.filteredItems = action.payload;
       })
       .addCase(getItems.rejected, (state, action) => {
         state.status = "rejected";
@@ -29,4 +38,5 @@ export const getItems = createAsyncThunk("products/getItems", async () => {
   return res.data;
 });
 
+export const { searchItems } = productsSlice.actions;
 export default productsSlice.reducer;

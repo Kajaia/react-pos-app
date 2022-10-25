@@ -20,7 +20,7 @@ export default function ProductItem({ product }) {
           </span>
           <img
             width="100%"
-            height="100px"
+            height="130px"
             className="rounded-3 cover mb-1"
             src={product.image}
             alt={product.name}

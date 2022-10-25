@@ -9,7 +9,7 @@ body {
 }
 
 .products-body {
-  max-height: 82vh;
+  max-height: 85vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -39,4 +39,10 @@ body {
 
 .line-height {
   line-height: 16px;
+}
+
+.cart-body {
+  max-height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

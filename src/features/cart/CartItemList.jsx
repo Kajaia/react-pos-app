@@ -28,7 +28,7 @@ export default function CartItemList() {
               )}
             </h3>
           </div>
-          <div className="card-body p-0 products-body">
+          <div className="card-body p-0 cart-body">
             <div className="row justify-content-center g-3">
               {count < 1 && (
                 <h5 className="mt-5 text-center">No items in cart!</h5>

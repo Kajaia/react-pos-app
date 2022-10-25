@@ -46,3 +46,13 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.modal-portal {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 640px;
+  max-width: 90%;
+  z-index: 1;
+}
